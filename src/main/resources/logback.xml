@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+ 
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{20}) - %msg%n%rEx </pattern>
+        </encoder>
+         
+    </appender>
+  
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/tmp/logback.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/tmp/logback_%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy> 
+        
+        <encoder>            
+            <pattern>%d{HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{20}) - %msg%n%rEx </pattern>
+        </encoder>
+    </appender>
+   
+    <logger name="buttso.demo.sessionswithcdilogback" level="TRACE"/>   
+ 
+    <root level="TRACE">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
