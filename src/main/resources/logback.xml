@@ -5,7 +5,6 @@
         <encoder>
             <pattern>%d{HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{20}) - %msg%n%rEx </pattern>
         </encoder>
-         
     </appender>
   
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
